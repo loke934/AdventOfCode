@@ -81,6 +81,7 @@ void Calendar::Day3()
     ifstream file("Day3.txt");
     string str;
     int prioritySum = 0;
+    //Part1
    /* while (getline(file, str))
     {
         int numberOfElements = str.length() - 1;
@@ -110,10 +111,9 @@ void Calendar::Day3()
             }
         }
     }*/
-
+    //Part2
     int lineNo = 0;
     string elves[3];
-    int h = 0;
     char itemType = 0;
     while(getline(file, str))
     {
@@ -127,24 +127,21 @@ void Calendar::Day3()
                 {
                     if (elves[0].at(i) == elves[1].at(j))
                     {
-                        for (size_t o = 0; o < elves[2].length(); o++)
+                        for (size_t k = 0; k < elves[2].length(); k++)
                         {
-                            if (elves[2].at(o) == elves[0].at(i) && itemType == 0)
+                            if (elves[2].at(k) == elves[0].at(i) && itemType == 0)
                             {
                                 itemType = elves[0].at(i);
-                                cout << itemType << endl;
+                                int add = 0;
                                 if (islower(itemType))
                                 {
-                                    int add = priorityLookUp.at(itemType);
-                                    prioritySum += add;
-
+                                    add = priorityLookUp.at(itemType);
                                 }
                                 else if (isupper(itemType))
                                 {
-                                    char hello = tolower(itemType);
-                                    int add = priorityLookUp.at(hello) + 26;
-                                    prioritySum += add;
+                                    add = priorityLookUp.at(tolower(itemType)) + 26;
                                 }
+                                prioritySum += add;
                             }
                         }
                     }
