@@ -9,5 +9,7 @@ public:
 	void Day3();
 
 	void Day4();
+
+	void Day5();
 };
 
